@@ -1,5 +1,8 @@
+export DOTFILES_ROOT="$HOME/.dotfiles"
+
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH="$DOTFILES_ROOT/oh-my-zsh"
+ZSH_CUSTOM="$DOTFILES_ROOT/oh-my-zsh-custom"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -52,7 +55,8 @@ export EDITOR="vim"
 
 bindkey '^R' history-incremental-search-backward
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=("$DOTFILES_ROOT/zsh-completions" $fpath)
+fpath=("$DOTFILES_ROOT/zsh-completions-osx" $fpath)
 
 # Keypad enter
 bindkey -s "^[OM" "^M"

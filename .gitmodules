@@ -1,9 +1,12 @@
 [submodule "oh-my-zsh"]
-  path = oh-my-zsh
-  url = https://github.com/robbyrussell/oh-my-zsh.git
+	path = oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh
 [submodule "zsh-syntax-highlighting"]
-  path = zsh-syntax-highlighting
-  url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+	path = zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
 [submodule "zsh-completions-osx"]
-  path = zsh-completions-osx
-  url = https://github.com/yujinakayama/zsh-completions-osx.git
+	path = zsh-completions-osx
+	url = https://github.com/yujinakayama/zsh-completions-osx
+[submodule "zsh-completions"]
+	path = zsh-completions
+	url = https://github.com/zsh-users/zsh-completions

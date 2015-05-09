@@ -21,7 +21,7 @@ for filename in *; do
 
   file_in_dotfiles="$PWD/$filename"
 
-  if $filename == "coffelint.json"; then
+  if [[ $filename == "coffelint.json" ]]; then
     file_in_home="$HOME/$filename"
   else
     file_in_home="$HOME/.$filename"

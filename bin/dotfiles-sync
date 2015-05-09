@@ -18,6 +18,7 @@ for filename in *; do
   filename="$(basename "$filename")"
 
   [[ $filename == 'README.md' ]] && continue
+  [[ $filename == 'LICENCE.md' ]] && continue
 
   file_in_dotfiles="$PWD/$filename"
 

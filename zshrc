@@ -62,8 +62,11 @@ bindkey '^R' history-incremental-search-backward
 
 fpath=("$DOTFILES_ROOT/zsh-completions" $fpath)
 
-if [[ "$system" != 'Linux' ]]; then
+if [[ "$system" == 'Linux' ]]; then
+  alias ll='ls -lha --group-directories-first'
+else
   fpath=("$DOTFILES_ROOT/zsh-completions-osx" $fpath)
+  alias ll='ls -lha'
 fi
 
 # Keypad enter

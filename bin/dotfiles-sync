@@ -19,7 +19,6 @@ for filename in *; do
 
   [[ $filename == 'README.md' ]] && continue
   [[ $filename == 'LICENCE.md' ]] && continue
-  [[ $filename == 'install.sh' ]] && continue
 
   file_in_dotfiles="$PWD/$filename"
 

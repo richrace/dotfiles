@@ -39,5 +39,5 @@ for filename in *; do
 done
 
 if [[ ! -e "$HOME/.vim" ]]; then
-  ln -s "$DOTFILES_ROOT/vim" "$HOME/.vim"
+  ln -s "$PWD/vim" "$HOME/.vim"
 fi

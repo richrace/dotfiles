@@ -37,3 +37,7 @@ for filename in *; do
     ln -s "$file_in_dotfiles" "$file_in_home"
   fi
 done
+
+if [[ ! -e "$HOME/.vim" ]]; then
+  ln -s "$DOTFILES_ROOT/vim" "$HOME/.vim"
+fi

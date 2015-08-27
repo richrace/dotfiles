@@ -8,7 +8,7 @@ ZSH_CUSTOM="$DOTFILES_ROOT/oh-my-zsh-custom"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="richrace"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -40,10 +40,15 @@ ZSH_THEME="robbyrussell"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+system='uname -s'
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew npm rails ruby bundler gitfast osx pow rvm sudo zsh-syntax-highlighting)
+plugins=(git brew npm rails ruby bundler gitfast pow rvm svn zsh-syntax-highlighting)
+if [[ "$system" != 'Linux' ]]; then
+  plugins+=(osx)
+fi
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct
@@ -56,7 +61,12 @@ export EDITOR="vim"
 bindkey '^R' history-incremental-search-backward
 
 fpath=("$DOTFILES_ROOT/zsh-completions" $fpath)
-fpath=("$DOTFILES_ROOT/zsh-completions-osx" $fpath)
+
+if [[ "$system" != 'Linux' ]]; then
+  fpath=("$DOTFILES_ROOT/zsh-completions-osx" $fpath)
+fi
 
 # Keypad enter
 bindkey -s "^[OM" "^M"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

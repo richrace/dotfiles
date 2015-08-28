@@ -14,6 +14,8 @@ if &diff
 else
   set background=dark
   colorscheme lucid
+  let NERDTreeShowHidden=1
+  autocmd vimenter * NERDTree
 endif
 
 set wrap
@@ -36,6 +38,3 @@ function TrimEndLines()
 endfunction
 
 au BufWritePre * call TrimEndLines()
-
-let NERDTreeShowHidden=1
-autocmd vimenter * NERDTree

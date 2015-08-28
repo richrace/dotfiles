@@ -36,4 +36,6 @@ function TrimEndLines()
 endfunction
 
 au BufWritePre * call TrimEndLines()
+
+let NERDTreeShowHidden=1
 autocmd vimenter * NERDTree

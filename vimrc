@@ -27,6 +27,8 @@ set expandtab
 set tabstop=4
 set shiftwidth=2
 
+set colorcolumn=80
+
 function TrimEndLines()
   let save_cursor = getpos(".")
   :silent! %s#\($\n\s*\)\+\%$##

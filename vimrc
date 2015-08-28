@@ -34,3 +34,4 @@ function TrimEndLines()
 endfunction
 
 au BufWritePre * call TrimEndLines()
+autocmd vimenter * NERDTree

@@ -45,7 +45,7 @@ system=`uname -s`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew npm rails ruby bundler gitfast pow rvm svn zsh-syntax-highlighting)
+plugins=(git brew npm rails ruby bundler git-extras pow rvm svn zsh-syntax-highlighting)
 if [[ "$system" != 'Linux' ]]; then
   plugins+=(osx)
 fi

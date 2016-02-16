@@ -62,27 +62,29 @@ fpath=("$DOTFILES_ROOT/zsh-completions" $fpath)
 if [[ "$system" == 'Linux' ]]; then
   alias ll='ls -lha --group-directories-first'
 
-  # For Github SSH Keys
-  SSH_ENV="$HOME/.ssh/environment"
+  # # For Github SSH Keys
+  # SSH_ENV="$HOME/.ssh/environment"
+  #
+  # function start_agent {
+  #   echo "Initialising new SSH agent..."
+  #   /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+  #   echo succeeded
+  #   chmod 600 "${SSH_ENV}"
+  #   . "${SSH_ENV}" > /dev/null
+  #   /usr/bin/ssh-add;
+  # }
+  #
+  # # Source SSH settings, if applicable
+  # if [ -f "${SSH_ENV}" ]; then
+  #   . "${SSH_ENV}" > /dev/null
+  #   ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+  #     start_agent;
+  #   }
+  # else
+  #   start_agent;
+  # fi
 
-  function start_agent {
-    echo "Initialising new SSH agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    echo succeeded
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add;
-  }
-
-  # Source SSH settings, if applicable
-  if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-      start_agent;
-    }
-  else
-    start_agent;
-  fi
+  export TERM=xterm-256color
 else
   fpath=("$DOTFILES_ROOT/zsh-completions-osx" $fpath)
   alias ll='ls -lha'

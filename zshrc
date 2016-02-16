@@ -53,9 +53,6 @@ fi
 source $ZSH/oh-my-zsh.sh
 unsetopt correct
 
-# Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-
 export EDITOR="vim"
 
 bindkey '^R' history-incremental-search-backward
@@ -93,5 +90,3 @@ fi
 
 # Keypad enter
 bindkey -s "^[OM" "^M"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

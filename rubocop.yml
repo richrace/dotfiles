@@ -1,12 +1,12 @@
 require: rubocop-rspec
 
-AllCops:
-  RunRailsCops: true
+Rails:
+  Enabled: true
 
 Style/AlignParameters:
   EnforcedStyle: with_fixed_indentation
 
-Style/ClassLength:
+Metrics/ClassLength:
   CountComments: false
   Max: 200
 
@@ -15,9 +15,6 @@ Style/CollectionMethods:
     inject: 'inject' # disable "use reduce instead of inject" warning
 
 Style/EachWithObject:
-  Enabled: false
-
-Style/EmptyLinesAroundBody:
   Enabled: false
 
 Style/EmptyLineBetweenDefs:
@@ -32,14 +29,14 @@ Style/HashSyntax:
 Style/IndentHash:
   EnforcedStyle: consistent
 
-Style/LineLength:
+Metrics/LineLength:
   Max: 80
   AllowURI: true
 
 Style/IfUnlessModifier:
   MaxLineLength: 80
 
-Style/MethodLength:
+Metrics/MethodLength:
   CountComments: false
   Max: 20
 

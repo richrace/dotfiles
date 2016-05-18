@@ -1,9 +1,15 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+syntax on
 filetype plugin indent on
 
-syntax enable
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
 
+set t_ut=
+
+syntax enable
 set list
 set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
 

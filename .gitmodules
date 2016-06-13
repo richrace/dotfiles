@@ -43,3 +43,12 @@
 [submodule "vim/bundle/colorschemer"]
 	path = vim/bundle/colorschemer
 	url = https://github.com/jlund3/colorschemer.git
+[submodule "zsh-256color"]
+	path = zsh-256color
+	url = https://github.com/chrissicool/zsh-256color
+[submodule "vim/bundle/vim-hybrid"]
+	path = vim/bundle/vim-hybrid
+	url = https://github.com/w0ng/vim-hybrid
+[submodule "vim/bundle/vim-coffee-script"]
+	path = vim/bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git

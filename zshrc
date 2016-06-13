@@ -45,7 +45,7 @@ system=`uname -s`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew npm rails ruby rake-fast bundler git-extras pow rvm svn zsh-syntax-highlighting)
+plugins=(git brew npm rails ruby rake-fast bundler git-extras pow rvm svn zsh-syntax-highlighting zsh-256color)
 if [[ "$system" != 'Linux' ]]; then
   plugins+=(osx)
 fi
@@ -84,7 +84,6 @@ if [[ "$system" == 'Linux' ]]; then
   #   start_agent;
   # fi
 
-  export TERM=xterm-256color
 else
   fpath=("$DOTFILES_ROOT/zsh-completions-osx" $fpath)
   alias ll='ls -lha'

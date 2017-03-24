@@ -17,7 +17,7 @@
   pom = push origin master
   pr = pull --rebase
 [core]
-  pager = diff-highlight | diff-so-fancy | less -r
+  pager = diff-highlight | diff-so-fancy | less --tabs=2 -cr
 
 [color]
   ui = always

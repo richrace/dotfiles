@@ -40,9 +40,6 @@
 [submodule "vim/bundle/nerdtree-git-plugin"]
 	path = vim/bundle/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
-[submodule "vim/bundle/colorschemer"]
-	path = vim/bundle/colorschemer
-	url = https://github.com/jlund3/colorschemer.git
 [submodule "zsh-256color"]
 	path = zsh-256color
 	url = https://github.com/chrissicool/zsh-256color

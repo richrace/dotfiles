@@ -7,11 +7,10 @@ if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
 
-set t_ut=
-
 syntax enable
 set list
 set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
+set cursorline
 
 if &diff
   set background=light
@@ -19,9 +18,13 @@ if &diff
   set diffopt+=iwhite
 else
   set background=dark
-  colorscheme lucid
+
+  colorscheme molokai
+
   let NERDTreeShowHidden=1
   autocmd vimenter * NERDTree
+
+  let g:ctrlp_dont_split = 'nerdtree'
 endif
 
 set wrap
@@ -34,7 +37,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 set expandtab
 set tabstop=4
 set shiftwidth=2
-
+set shell=/bin/sh
 set colorcolumn=80
 
 function TrimEndLines()

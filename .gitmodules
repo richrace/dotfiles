@@ -73,3 +73,6 @@
 [submodule "vim/bundle/emmet-vim"]
 	path = vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "vim/bundle/colorschemer"]
+	path = vim/bundle/colorschemer
+	url = https://github.com/tophathaxor/colorschemer

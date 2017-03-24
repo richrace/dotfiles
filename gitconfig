@@ -2,7 +2,7 @@
 	helper = cache
 [user]
 	name = Richard Race
-	email = richard@yougroup.co.uk
+	email = race.richard@gmail.com
 [difftool]
 	prompt = false
 [alias]
@@ -17,7 +17,7 @@
   pom = push origin master
   pr = pull --rebase
 [core]
-  pager = diff-highlight | diff-so-fancy | less --tabs=2 -cr
+  pager = diff-so-fancy | less --tabs=2 -cr
 
 [color]
   ui = always

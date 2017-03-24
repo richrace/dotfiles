@@ -20,6 +20,7 @@ if ! command_exist git; then
     sudo apt-get install --yes git
   elif command_exist brew; then
     brew install git
+    brew install diff-so-fancy
   else
     echo "Cannot install git. Aborting."
     exit 1

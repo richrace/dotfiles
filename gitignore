@@ -10,5 +10,17 @@
 .Trashes
 
 # Bundler
-.bundle
 /vendor/bundle
+
+.svn
+
+### VIM Files
+## swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# tempoksary
+anetrwhisit
+
+.rake_tasks

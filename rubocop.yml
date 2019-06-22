@@ -1,6 +1,6 @@
-# AllCops:
-#   TargetRubyVersion: 2.1
-#   TargetRailsVersion: 4.2
+require:
+  - rubocop-rspec
+  - rubocop-rails
 
 Rails:
   Enabled: true
@@ -14,7 +14,7 @@ Metrics/ClassLength:
 
 Style/CollectionMethods:
   PreferredMethods:
-    inject: 'inject' # disable "use reduce instead of inject" warning
+    inject: "inject" # disable "use reduce instead of inject" warning
 
 Style/EachWithObject:
   Enabled: false
@@ -22,15 +22,15 @@ Style/EachWithObject:
 Layout/EmptyLineBetweenDefs:
   AllowAdjacentOneLineDefs: true
 
-Style/HashSyntax:
-  EnforcedStyle: hash_rockets
-
-Layout/IndentHash:
-  EnforcedStyle: consistent
+Style/Encoding:
+  EnforcedStyle: when_needed
 
 Metrics/LineLength:
   Max: 100
   AllowURI: true
+
+Style/IfUnlessModifier:
+  MaxLineLength: 100
 
 Metrics/MethodLength:
   CountComments: false
@@ -41,6 +41,9 @@ Style/SingleLineBlockParams:
 
 Style/StringLiterals:
   Enabled: false
+
+Style/WhileUntilModifier:
+  MaxLineLength: 100
 
 Documentation:
   Enabled: false

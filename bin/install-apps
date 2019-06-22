@@ -8,7 +8,6 @@ command_exist() {
 }
 
 if [[ ! "$SHELL" == '/bin/zsh' ]]; then
-  "$DOTFILES_ROOT/oh-my-zsh/tools/install.sh"
   chsh -s $(which zsh)
 fi
 
@@ -70,7 +69,7 @@ if command_exist brew; then
     fi
   done
 
-  if [ $SKIP_CASKS = true ]; then
+  if [[ $SKIP_CASKS == true ]]; then
     echo "Not installing Casks"
   else
     for brew_cask_app in "${brew_cask_apps[@]}"; do

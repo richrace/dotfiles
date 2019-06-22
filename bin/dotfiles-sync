@@ -38,6 +38,15 @@ for filename in *; do
   fi
 done
 
-if [[ ! -e "$HOME/.vim" ]]; then
-  ln -s "$PWD/vim" "$HOME/.vim"
-fi
+
+folders_to_link=(vim oh-my-zsh)
+
+for folder in "${folders_to_link[@]}"; do
+  if [[ -e "$HOME/.$folder" ]]; then
+    if [[ ! -L "$HOME/.$folder" ]]; then
+      warning ".$folder already exists in $HOME and is not a symlink"
+    fi
+  else
+    ln -s "$PWD/$folder" "$HOME/.$folder"
+  fi
+done

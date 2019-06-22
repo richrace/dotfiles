@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+export DOTFILES_ROOT="$HOME/.dotfiles"
+
+command_exist() {
+  local command="$1"
+  command -v "$command" > /dev/null 2> /dev/null
+  return $?
+}
+
+if [[ ! "$SHELL" == '/bin/zsh' ]]; then
+  "$DOTFILES_ROOT/oh-my-zsh/tools/install.sh"
+  chsh -s $(which zsh)
+fi
+
+brew_apps=(
+  nvm
+  npm
+  git-extra
+  yarn
+  rbenv
+  hub
+  wget
+)
+
+brew_cask_apps=(
+  1password
+  atom
+  alfred
+  boostnote
+  dash
+  docker
+  firefox
+  google-chrome
+  iterm2
+  istat-menu
+  lastpass
+  postman
+  slack
+  skype
+  sequel-pro
+  spectacle
+  haptickey
+  licecap
+  gpg-suite
+  font-fira-mono
+)
+
+npm_globals=(
+  eslint
+  prettier
+  eslint-plugin-prettier
+  eslint-plugin-react
+  diff-so-fancy
+  git-standup
+)
+
+if command_exist brew; then
+  for brew_app in "${brew_apps[@]}"; do
+    if test ! $(brew list | grep $brew_app); then
+      brew install $brew_app
+
+      if [[ "$brew_app" == 'rbenv' ]]; then
+        rbenv install 2.6.3
+        rbenv global 2.6.3
+
+        gem install rubocop
+        gem install rubocop-rails
+        gem install rubocop-rspec
+      fi
+    fi
+  done
+
+  if [ $SKIP_CASKS = true ]; then
+    echo "Not installing Casks"
+  else
+    for brew_cask_app in "${brew_cask_apps[@]}"; do
+      if [[ ! $(brew cask list | grep $brew_cask_app) ]]; then
+        brew cask install $brew_cask_app --appdir=/Applications
+      fi
+    done
+  fi
+fi
+
+
+if command_exist npm; then
+  for npm_package in "${npm_globals[@]}"; do
+    if test ! "$(npm list --global 2> /dev/null | grep $npm_package)"; then
+      npm install --global $npm_package
+    fi
+  done
+fi

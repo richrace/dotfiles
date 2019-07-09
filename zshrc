@@ -8,7 +8,7 @@ ZSH_CUSTOM="$DOTFILES_ROOT/oh-my-zsh-custom"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="richrace"
+ZSH_THEME="spaceship"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"

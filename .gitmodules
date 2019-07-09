@@ -64,3 +64,6 @@
 [submodule "vim/bundle/colorschemer"]
 	path = vim/bundle/colorschemer
 	url = https://github.com/tophathaxor/colorschemer
+[submodule "spaceship-prompt"]
+	path = spaceship-prompt
+	url = https://github.com/denysdovhan/spaceship-prompt.git

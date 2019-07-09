@@ -20,6 +20,9 @@ brew_apps=(
   hub
   wget
 )
+brew_taps=(
+  homebrew/cask-fonts
+)
 
 brew_cask_apps=(
   1password
@@ -42,6 +45,7 @@ brew_cask_apps=(
   licecap
   gpg-suite
   font-fira-mono
+  font-fira-mono-for-powerline
 )
 
 npm_globals=(
@@ -72,6 +76,12 @@ if command_exist brew; then
   if [ "$SKIP_CASKS" = true ]; then
     echo "Not installing Casks"
   else
+    for brew_tap in "${brew_taps[@]}"; do
+      if [[ ! $(brew tap | grep $brew_tap) ]]; then
+        brew tap $brew_tap
+      fi
+    done
+
     for brew_cask_app in "${brew_cask_apps[@]}"; do
       if [[ ! $(brew cask list | grep $brew_cask_app) ]]; then
         brew cask install $brew_cask_app --appdir=/Applications

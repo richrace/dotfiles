@@ -12,11 +12,14 @@ brew_apps=(
   zsh
   nvm
   npm
-  git-extra
+  git-extras
   yarn
   rbenv
   hub
   wget
+  htop
+  tmux
+  gzip
 )
 brew_taps=(
   homebrew/cask-fonts
@@ -32,9 +35,9 @@ brew_cask_apps=(
   firefox
   google-chrome
   iterm2
-  istat-menu
-  lastpass
+  istat-menus
   postman
+  pock
   slack
   skype
   sequel-pro

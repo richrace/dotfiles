@@ -60,7 +60,7 @@ npm_globals=(
 
 if command_exist brew; then
   for brew_app in "${brew_apps[@]}"; do
-    if test ! $(brew list | grep $brew_app); then
+    if test ! $(brew list | grep  -e ^$brew_app\$); then
       brew install $brew_app
 
       if [[ "$brew_app" == 'rbenv' ]]; then
@@ -84,7 +84,7 @@ if command_exist brew; then
     done
 
     for brew_cask_app in "${brew_cask_apps[@]}"; do
-      if [[ ! $(brew cask list | grep $brew_cask_app) ]]; then
+      if [[ ! $(brew cask list | grep -e ^$brew_cask_app\$) ]]; then
         brew cask install $brew_cask_app --appdir=/Applications
       fi
     done

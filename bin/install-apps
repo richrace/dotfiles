@@ -20,6 +20,7 @@ brew_apps=(
   htop
   tmux
   gzip
+  tfenv
 )
 brew_taps=(
   homebrew/cask-fonts

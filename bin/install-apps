@@ -22,9 +22,7 @@ brew_apps=(
   gzip
   tfenv
   1password
-  atom
   alfred
-  boostnote
   dash
   docker
   firefox
@@ -40,6 +38,9 @@ brew_apps=(
   gpg-suite
   font-fira-mono
   font-fira-mono-for-powerline
+  visual-studio-code
+  the-unarchiver
+  alt-tab
 )
 
 brew_taps=(

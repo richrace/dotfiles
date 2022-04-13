@@ -2,7 +2,7 @@
 	helper = cache
 [user]
 	name = Richard Race
-	email = race.richard@gmail.com
+	email = 1273965+richrace@users.noreply.github.com
 [difftool]
 	prompt = false
 [alias]
@@ -14,7 +14,6 @@
   a = add
   ap = add -p
   au = add -u
-  pom = push origin master
   pr = pull --rebase
 [core]
   pager = diff-so-fancy | less --tabs=2 -cr
@@ -45,4 +44,9 @@
   newNormal = "green bold"
   newHighlight = "green bold 22"
 [commit]
-	gpgsign = true
+  gpgsign = true
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

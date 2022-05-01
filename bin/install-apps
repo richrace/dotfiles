@@ -41,6 +41,8 @@ brew_apps=(
   visual-studio-code
   the-unarchiver
   alt-tab
+  monitorcontrol
+  karabiner-elements
 )
 
 brew_taps=(

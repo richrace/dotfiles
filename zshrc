@@ -48,7 +48,7 @@ system=`uname -s`
 plugins=(git npm rails ruby rake-fast bundler git-extras pow rvm svn \
   zsh-syntax-highlighting zsh-256color tmux colored-man-pages)
 if [[ "$system" != 'Linux' ]]; then
-  plugins+=(osx)
+  plugins+=(macos)
 fi
 
 source $ZSH/oh-my-zsh.sh

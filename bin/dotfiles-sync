@@ -22,6 +22,11 @@ for filename in *; do
 
   file_in_dotfiles="$PWD/$filename"
 
+  if [ $filename == "spaceship.zsh" ]; then
+    ln -s "$file_in_dotfiles" "$HOME/.config/spaceship.zsh"
+    continue
+  fi
+
   if [ $filename == "coffelint.json" ] || [ $filename == "svn_vimdiff.sh" ]; then
     file_in_home="$HOME/$filename"
   else

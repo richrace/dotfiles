@@ -17,6 +17,8 @@ brew_apps=(
   rbenv
   hub
   wget
+  pyenv
+  terraform
   htop
   tmux
   gzip
@@ -32,17 +34,16 @@ brew_apps=(
   postman
   pock
   slack
-  sequel-pro
-  haptickey
   rectangle
+  tableplus
+  the-unarchiver
   gpg-suite
   font-fira-mono
   font-fira-mono-for-powerline
   visual-studio-code
   the-unarchiver
-  alt-tab
   monitorcontrol
-  karabiner-elements
+  openjdk@11
 )
 
 brew_taps=(
@@ -64,8 +65,8 @@ if command_exist brew; then
       brew install $brew_app
 
       if [[ "$brew_app" == 'rbenv' ]]; then
-        rbenv install 2.6.3
-        rbenv global 2.6.3
+        rbenv install 3.2.2
+        rbenv global 3.2.2
 
         gem install rubocop
         gem install rubocop-rails
@@ -73,7 +74,6 @@ if command_exist brew; then
       fi
     fi
   done
-
 
   for brew_tap in "${brew_taps[@]}"; do
     if [[ ! $(brew tap | grep $brew_tap) ]]; then

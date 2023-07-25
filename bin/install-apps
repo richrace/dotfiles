@@ -34,7 +34,7 @@ brew_apps=(
   postman
   pock
   slack
-  spectacle
+  rectangle
   tableplus
   the-unarchiver
   gpg-suite

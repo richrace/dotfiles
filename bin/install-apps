@@ -32,17 +32,14 @@ brew_apps=(
   postman
   pock
   slack
-  sequel-pro
-  haptickey
-  rectangle
+  spectacle
+  tableplus
   gpg-suite
   font-fira-mono
   font-fira-mono-for-powerline
   visual-studio-code
   the-unarchiver
-  alt-tab
   monitorcontrol
-  karabiner-elements
 )
 
 brew_taps=(
@@ -64,8 +61,8 @@ if command_exist brew; then
       brew install $brew_app
 
       if [[ "$brew_app" == 'rbenv' ]]; then
-        rbenv install 2.6.3
-        rbenv global 2.6.3
+        rbenv install 3.2.2
+        rbenv global 3.2.2
 
         gem install rubocop
         gem install rubocop-rails

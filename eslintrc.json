@@ -1,7 +1,6 @@
 {
-  "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 5,
+    "ecmaVersion": 2017,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -11,7 +10,6 @@
     "semi": 2,
     "quotes": 0,
     "eqeqeq": 2,
-    "react/prop-types": 1,
     "no-eval": 2,
     "object-shorthand": [2, "never"]
   },
@@ -21,21 +19,14 @@
       "object-shorthand": [2, "consistent"]
     }
   },
-  "plugins": ["react", "jest"],
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "plugins": [],
+  "extends": ["eslint:recommended"],
   "env": {
     "browser": true,
-    "jquery": true,
-    "jest/globals": true
+    "jquery": true
   },
   "globals": {
     "_": true,
-    "React": true,
-    "Redux": true,
-    "ReactRedux": true,
-    "ReactCSSTransitionGroup": true,
-    "require": true,
-    "createReactClass": true,
-    "PropTypes": true
+    "require": true
   }
 }

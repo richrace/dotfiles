@@ -6,6 +6,7 @@
 [difftool]
 	prompt = false
 [alias]
+  cb = checkout -b
   s = status
   c = commit -v
   d = diff --color
@@ -17,6 +18,7 @@
   pr = pull --rebase
 [core]
   pager = diff-so-fancy | less --tabs=2 -cr
+	excludesfile = /Users/rich/.gitignore_global
 
 [color]
   ui = always
@@ -50,3 +52,5 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+[init]
+	defaultBranch = main

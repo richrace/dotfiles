@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+export DOTFILES_ROOT="$HOME/.dotfiles"
+
+git submodule update --remote

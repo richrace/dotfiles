@@ -67,3 +67,6 @@
 [submodule "spaceship-prompt"]
 	path = spaceship-prompt
 	url = https://github.com/denysdovhan/spaceship-prompt.git
+[submodule "oh-my-zsh-custom/plugins/aws-vault-zsh-plugin"]
+	path = oh-my-zsh-custom/plugins/aws-vault-zsh-plugin
+	url = https://github.com/blimmer/zsh-aws-vault.git

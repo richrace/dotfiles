@@ -7,6 +7,7 @@
 	prompt = false
 [alias]
   cb = checkout -b
+  cm = checkout main
   s = status
   c = commit -v
   d = diff --color

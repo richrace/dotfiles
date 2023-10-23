@@ -3,13 +3,16 @@
 [user]
 	name = Richard Race
 	email = 1273965+richrace@users.noreply.github.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHunSbM97f33eDQ+vbtoXW1Rv/0iNEbJZqH+TZdCPvkh
 [difftool]
 	prompt = false
 [alias]
-  cb = checkout -b
-  cm = checkout main
+  cob = checkout -b
+  com = checkout main
+  co = checkout
   s = status
   c = commit -v
+  cm = commit -v -m
   d = diff --color
   ds = diff --color --staged
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
@@ -17,9 +20,11 @@
   ap = add -p
   au = add -u
   pr = pull --rebase
+  p = pull
 [core]
   pager = diff-so-fancy | less --tabs=2 -cr
 	excludesfile = /Users/rich/.gitignore_global
+	editor = code --wait
 
 [color]
   ui = always
@@ -55,3 +60,7 @@
   required = true
 [init]
 	defaultBranch = main
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign

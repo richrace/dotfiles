@@ -122,3 +122,6 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
 [[ -s "/Users/rich/.gvm/scripts/gvm" ]] && source "/Users/rich/.gvm/scripts/gvm"
+
+# bun completions
+[ -s "/Users/rich/.bun/_bun" ] && source "/Users/rich/.bun/_bun"

@@ -40,14 +40,17 @@ brew_apps=(
   gpg-suite
   font-fira-mono
   font-fira-mono-for-powerline
+  font-fira-code
   visual-studio-code
   the-unarchiver
   monitorcontrol
   openjdk@11
   jq
+  bun
 )
 
 brew_taps=(
+  oven-sh/bun
   homebrew/cask-fonts
 )
 
@@ -61,6 +64,13 @@ npm_globals=(
 )
 
 if command_exist brew; then
+
+  for brew_tap in "${brew_taps[@]}"; do
+    if [[ ! $(brew tap | grep $brew_tap) ]]; then
+      brew tap $brew_tap
+    fi
+  done
+
   for brew_app in "${brew_apps[@]}"; do
     if test ! $(brew list | grep  -e ^$brew_app\$); then
       brew install $brew_app
@@ -76,11 +86,6 @@ if command_exist brew; then
     fi
   done
 
-  for brew_tap in "${brew_taps[@]}"; do
-    if [[ ! $(brew tap | grep $brew_tap) ]]; then
-      brew tap $brew_tap
-    fi
-  done
 fi
 
 if command_exist npm; then

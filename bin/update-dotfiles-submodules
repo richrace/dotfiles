@@ -3,6 +3,6 @@ export DOTFILES_ROOT="$HOME/.dotfiles"
 
 cd "${DOTFILES_ROOT}"
 
-git submodule update --remote
+git submodule update --remote --recursive
 
 echo "\nFinshed Updating."

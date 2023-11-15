@@ -97,7 +97,8 @@ if command_exist npm; then
 fi
 
 # After `brew` has install ZSH ensure we use it.
-if [[ ! "$SHELL" == '/bin/zsh' ]]; then
+if [[ ! "$SHELL" == "$(which zsh)" ]]; then
+  echo "\nChanging Shell..."
   sudo sh -c "echo '$(which zsh)' >> /etc/shells"
   chsh -s $(which zsh)
 fi

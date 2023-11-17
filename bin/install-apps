@@ -14,6 +14,7 @@ brew_apps=(
   npm
   git-extras
   yarn
+  ruby-build
   rbenv
   hub
   wget
@@ -24,29 +25,25 @@ brew_apps=(
   gzip
   tfenv
   1password
-  alfred
-  dash
+  arc
+  bun
   docker
   firefox
-  google-chrome
-  iterm2
-  istat-menus
-  postman
-  pock
-  slack
-  rectangle
-  tableplus
-  the-unarchiver
-  gpg-suite
   font-fira-mono
   font-fira-mono-for-powerline
   font-fira-code
-  visual-studio-code
-  the-unarchiver
-  monitorcontrol
-  openjdk@11
+  google-chrome
+  iterm2
+  istat-menus
   jq
-  bun
+  monitorcontrol
+  postman
+  raycast
+  rectangle
+  slack
+  tableplus
+  the-unarchiver
+  visual-studio-code
 )
 
 brew_taps=(

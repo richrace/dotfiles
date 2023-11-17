@@ -40,6 +40,15 @@ ZSH_THEME="spaceship"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# Overriding setting up history
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+setopt INC_APPEND_HISTORY
+export HISTTIMEFORMAT="[%F %T] "
+setopt EXTENDED_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+
 system=`uname -s`
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)

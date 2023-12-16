@@ -90,7 +90,7 @@ source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
 eval "$(rbenv init -)"
 
 # heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/rich/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+HEROKU_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -130,7 +130,9 @@ jdk() {
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
-[[ -s "/Users/rich/.gvm/scripts/gvm" ]] && source "/Users/rich/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # bun completions
-[ -s "/Users/rich/.bun/_bun" ] && source "/Users/rich/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+[ -s "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"

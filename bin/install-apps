@@ -19,6 +19,7 @@ brew_apps=(
   hub
   wget
   pyenv
+  pyenv-virtualenv
   terraform
   htop
   tmux

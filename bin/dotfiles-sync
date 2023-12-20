@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-warning() {
-  local message="$1"
-  printf "\e[33m${message}\e[0m\n"
-}
+source $DOTFILES_ROOT/bin/utils/logging.sh
+source $DOTFILES_ROOT/bin/utils/process_files.sh
+source $DOTFILES_ROOT/bin/utils/process_folders.sh
 
 cd "$(dirname "$BASH_SOURCE")"
 cd ..
@@ -12,49 +11,8 @@ git pull origin main || exit 1
 
 git submodule update --init --recursive || exit 1
 
-for filename in *; do
-  [[ -f $filename ]] || continue
-
-  filename="$(basename "$filename")"
-
-  [[ $filename == 'README.md' ]] && continue
-  [[ $filename == 'LICENCE.md' ]] && continue
-
-  file_in_dotfiles="$PWD/$filename"
-
-  if [ $filename == "spaceship.zsh" ]; then
-    ln -s "$file_in_dotfiles" "$HOME/.config/spaceship.zsh"
-    continue
-  fi
-
-  if [ $filename == "coffelint.json" ] || [ $filename == "svn_vimdiff.sh" ]; then
-    file_in_home="$HOME/$filename"
-  else
-    file_in_home="$HOME/.$filename"
-  fi
-
-  if [[ -e $file_in_home ]]; then
-    if [[ ! -L $file_in_home ]]; then
-      warning "$file_in_home exists but is not a symlink."
-    fi
-  else
-    echo "Creating symlink at $file_in_home"
-    ln -s "$file_in_dotfiles" "$file_in_home"
-  fi
-done
-
-
-folders_to_link=(vim oh-my-zsh)
-
-for folder in "${folders_to_link[@]}"; do
-  if [[ -e "$HOME/.$folder" ]]; then
-    if [[ ! -L "$HOME/.$folder" ]]; then
-      warning ".$folder already exists in $HOME and is not a symlink"
-    fi
-  else
-    ln -s "$PWD/$folder" "$HOME/.$folder"
-  fi
-done
+process_files
+process_folders
 
 ITERM2_PROFILE_FOLDER="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 iterm2_profile_name="Rich-iTem2-profile.json"
@@ -65,5 +23,5 @@ if [[ -e "$ITERM2_PROFILE_FOLDER/$iterm2_profile_name" ]]; then
   fi
 else
   mkdir -p $ITERM2_PROFILE_FOLDER
-  ln -s "$PWD/iterm2/$iterm2_profile_name" "$ITERM2_PROFILE_FOLDER/$iterm2_profile_name"
+  create_symlink "$PWD/iterm2/$iterm2_profile_name" "$ITERM2_PROFILE_FOLDER/$iterm2_profile_name"
 fi

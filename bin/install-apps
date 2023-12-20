@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-export DOTFILES_ROOT="$HOME/.dotfiles"
 
 command_exist() {
   local command="$1"
@@ -96,7 +95,7 @@ fi
 
 # After `brew` has install ZSH ensure we use it.
 if [[ ! "$SHELL" == "$(which zsh)" ]]; then
-  echo "\nChanging Shell..."
+  printf "\nChanging Shell..."
   sudo sh -c "echo '$(which zsh)' >> /etc/shells"
   chsh -s $(which zsh)
 fi

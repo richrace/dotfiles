@@ -6,9 +6,9 @@ command_exist() {
   return $?
 }
 
-installation_path="$HOME/.dotfiles"
+export DOTFILES_ROOT="$HOME/.dotfiles"
 
-if [[ -d "$installation_path" ]]; then
+if [[ -d "$DOTFILES_ROOT" ]]; then
   echo "Already installed."
   exit
 fi
@@ -38,9 +38,9 @@ if ! command_exist git; then
   fi
 fi
 
-git clone --recurse-submodules git@github.com:richrace/dotfiles.git "$installation_path"
+git clone --recurse-submodules git@github.com:richrace/dotfiles.git "$DOTFILES_ROOT"
 
-"$installation_path/bin/dotfiles-sync"
-"$installation_path/bin/install-apps"
+"$DOTFILES_ROOT/bin/dotfiles-sync"
+"$DOTFILES_ROOT/bin/install-apps"
 
 echo "Done."

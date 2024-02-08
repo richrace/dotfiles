@@ -22,7 +22,7 @@ fi
 if ! command_exist brew; then
   echo "Installing Homebrew ..."
 
-  curl -fsS 'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 if ! command_exist git; then

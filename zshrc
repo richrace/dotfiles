@@ -40,6 +40,8 @@ ZSH_THEME="spaceship"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+ZSH_DISABLE_COMPFIX="true"
+
 # Overriding setting up history
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
@@ -49,18 +51,17 @@ setopt EXTENDED_HISTORY
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 
-system=`uname -s`
+system=$(uname -s)
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git npm rails ruby rake-fast bundler git-extras pow rvm svn \
-  zsh-syntax-highlighting zsh-256color tmux colored-man-pages)
+plugins=(git npm rails ruby rake-fast bundler git-extras \
+  zsh-syntax-highlighting zsh-256color tmux colored-man-pages docker)
 if [[ "$system" != 'Linux' ]]; then
   plugins+=(macos)
 fi
 
-source $ZSH/oh-my-zsh.sh
 unsetopt correct
 
 export EDITOR="vim"
@@ -82,44 +83,46 @@ bindkey -s "^[OM" "^M"
 alias tar='gtar'
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
+source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 
 eval "$(rbenv init -)"
 
-# heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
-
-autoload -U add-zsh-hook
 load-nvmrc() {
-  local node_version="$(nvm version)"
   local nvmrc_path="$(nvm_find_nvmrc)"
 
   if [ -n "$nvmrc_path" ]; then
     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
     if [ "$nvmrc_node_version" = "N/A" ]; then
       nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
       nvm use
     fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
+  elif [ "$(nvm version)" != "$(nvm version default)" ]; then
     echo "Reverting to nvm default version"
     nvm use default
   fi
 }
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+
+if [[ $- == *i* ]]; then
+  # If you have a custom load-nvmrc hook, put it here
+  autoload -U add-zsh-hook
+  add-zsh-hook chpwd load-nvmrc
+  load-nvmrc
+fi
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
+pyenv() {
+  unset -f pyenv
+  eval "$(command pyenv init -)"
+  pyenv "$@"
+}
+
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
 jdk() {
         version=$1
@@ -136,3 +139,39 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 [ -s "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$PATH:$HOME/.local/bin"
+
+# pnpm
+export PNPM_HOME="/Users/rich/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+alias npr="npm run"
+compdef npr="npm"
+
+alias decolourise="sed -r \"s/\x1B\[([0-9]{1,3}(;[0-9]{1,3})*)?[mGK]//g\""
+
+function recent-branches() {
+  git reflog show --pretty=format:'%gs ~ %gd' --date=relative \
+    | grep 'checkout:' \
+    | grep -oE '[^ ]+ ~ .*' \
+    | awk -F~ '!seen[$1]++' \
+    | head -n 10 \
+    | awk -F' ~ HEAD@{' '{printf("  \033[33m%s: \033[37m %s\033[0m\n", substr($2, 1, length($2)-1), $1)}'
+}
+
+alias gtidy="git fetch --prune && git branch --no-color --merged main | grep -v '^\*\|main' | xargs git branch -d"
+alias glgs="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
+alias gr="recent-branches"
+
+source $HOME/.bichardrc
+
+# Custom Spaceship get toggled here. I don't know why
+source $ZSH/oh-my-zsh.sh
+
+

@@ -16,3 +16,6 @@ vim/.netrwhist
 # Bundler
 .bundle
 /vendor/bundle
+
+# JetBrains
+.idea/

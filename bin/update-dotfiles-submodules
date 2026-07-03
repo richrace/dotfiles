@@ -5,4 +5,4 @@ cd "${DOTFILES_ROOT}"
 
 git submodule update --remote --recursive
 
-printf "\nFinshed Updating.\e"
+printf "\nFinshed Updating.\n"

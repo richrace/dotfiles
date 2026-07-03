@@ -6,25 +6,10 @@
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHunSbM97f33eDQ+vbtoXW1Rv/0iNEbJZqH+TZdCPvkh
 [difftool]
   prompt = false
-[alias]
-  cob = checkout -b
-  com = checkout main
-  co = checkout
-  s = status
-  c = commit -v
-  cm = commit -v -m
-  d = diff --color
-  ds = diff --color --staged
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-  a = add
-  ap = add -p
-  au = add -u
-  pr = pull --rebase
-  p = pull
 [core]
   pager = diff-so-fancy | less --tabs=2 -cr
   excludesfile = /Users/rich/.gitignore_global
-  editor = code --wait
+  editor = ws --wait
 [color]
   ui = always
 [color "branch"]
@@ -49,6 +34,7 @@
   newHighlight = "green bold 22"
 [commit]
   gpgsign = true
+  template = /Users/rich/.gitmessage
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -60,3 +46,5 @@
   format = ssh
 [gpg "ssh"]
   program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[push]
+  autoSetupRemote = true
